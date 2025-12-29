@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OX 퀴즈</title>
+</head>
+<body style="background:#111;color:white;padding:20px;">
+
+<h2>정답을 번호로 입력하세요</h2>
+
+<p>
+1. 박정수<br>
+2. 한지훈<br>
+3. 김민영<br>
+4. 최수진<br>
+5. 최수정
+</p>
+
+<input id="answer" type="number" placeholder="번호 입력">
+<button onclick="check()">확인</button>
+
+<p id="result"></p>
+
+<script>
+function check() {
+    const user = Number(document.getElementById("answer").value);
+    const result = document.getElementById("result");
+
+    if (user === 5) {
+        result.innerText = "⭕ 정답입니다!";
+    } else {
+        result.innerText = "❌ 오답입니다!";
+    }
+}
+</script>
+
+</body>
+</html>
