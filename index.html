@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>OX 퀴즈</title>
 </head>
+
 <body style="background:#111;color:white;padding:20px;">
 
 <h2>정답을 번호로 입력하세요</h2>
@@ -16,15 +17,28 @@
 5. 최수정
 </p>
 
-<input id="answer" type="number" placeholder="번호 입력">
-<button onclick="check()">확인</button>
+<input id="answer" type="number" placeholder="번호 입력 (1~5)">
+<button id="btn" onclick="check()">확인</button>
 
 <p id="result"></p>
 
 <script>
+let used = false; // 이미 입력했는지 여부
+
 function check() {
-    const user = Number(document.getElementById("answer").value);
+    if (used) return; // 두 번 입력 방지
+
+    used = true;
+
+    const input = document.getElementById("answer");
+    const btn = document.getElementById("btn");
     const result = document.getElementById("result");
+
+    const user = Number(input.value);
+
+    // 입력 잠금
+    input.disabled = true;
+    btn.disabled = true;
 
     if (user === 5) {
         result.innerText = "⭕ 정답입니다!";
